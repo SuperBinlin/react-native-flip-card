@@ -23,6 +23,12 @@ in Cli
 npm i react-native-flip-card
 ```
 
+in JavaScirpt
+---
+```
+import FlipCard from 'react-native-flip-card'
+```
+
 
 Usage
 ===
@@ -30,8 +36,6 @@ Usage
 Simple
 ---
 ```
-import FlipCard from 'react-native-flip-card'
-
 <FlipCard>
   {/* Face Side */}
   <View style={styles.face}>
@@ -55,7 +59,7 @@ Customized
   flipVertical={false}
   flip={false}
   clickable={true}
-  onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
+  onFlipped={(isFlipped)=>{console.log('isFlipped', isFlipped)}}
 >
   {/* Face Side */}
   <View style={styles.face}>
@@ -75,7 +79,7 @@ flip(bool) `Default: false`
 ---
 If you change default display side, you can set `true` to this param. If you change side, you can pass `bool` variable dynamically.
 
-clickable(bool) `Default: true`
+clicakble(bool) `Default: true`
 ---
 If you want to disable click a card, you can set `false` to this param.
 
@@ -97,19 +101,13 @@ If you set true, a card flip to horizontal.
 flipVertical(bool) `Default: true`
 ---
 If you set false, a card not flip to vertical. If you set true both `flipHorizontal` and `flipVertical` , a card flip to diagonal.
+![](./doc/ver2_vertical.gif)
+![](./doc/ver2_diagonal.gif)
 
 
-vertical | diagnoal
----- | ----
- ![](./doc/ver2_vertical.gif)| ![](./doc/ver2_diagonal.gif)
-
-onFlipStart(function) `(isFlipStart) => {}`
+onFlipped(function) `(is_flipped) => {}`
 ---
-When a card starts a flip animation, call `onFlipEnd` function with param.
-
-onFlipEnd(function) `(isFlipEnd) => {}`
----
-When a card finishes a flip animation, call `onFlipEnd` function with param.
+When a card finish a flip animation, call `onFlipped` function with param.
 
 alignHeight(boolean) `Default:false`
 ---
@@ -119,9 +117,7 @@ alignWidth(boolean) `Default:false`
 ---
 If you pass `true` to `alignWidth` param, the card keep width of bigger side.
 
-useNativeDriver(boolean) `Default:false`
----
-If you pass `true` to `useNativeDriver` param, the card animation will utilize the native driver.
+
 
 Credits
 ===

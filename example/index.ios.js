@@ -1,22 +1,23 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
  */
-
-import React, { Component } from 'react';
-import {
+'use strict';
+import React, {
   AppRegistry,
+  Component,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Image,
+  View
 } from 'react-native';
 
-import FlipCard from 'react-native-flip-card';
+// import FlipCard from './index.js'
+import FlipCard from 'react-native-flip-card'
 
-export default class FlipCardExample extends Component {
+class FlipCardExample extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -25,9 +26,11 @@ export default class FlipCardExample extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          <Text style={styles.welcome}>Flip Card Example</Text>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Flip Card Example
+          </Text>
           <View>
             <Text style={styles.welcome}>Minimal</Text>
             <FlipCard style={{marginBottom: 5}}>
@@ -52,7 +55,7 @@ export default class FlipCardExample extends Component {
               style={styles.card}
               alignHeight={true}
               // alignWidth={true}
-              onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
+              onFlipped={(isFlipped)=>{console.log('isFlipped', isFlipped)}}
             >
               {/* Face Side */}
               <View style={styles.face}>
@@ -82,11 +85,10 @@ export default class FlipCardExample extends Component {
           </View>
 
           <View>
-            {CARDS.map(createCard)}
+          {CARDS.map(createCard)}
           </View>
-
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     )
   }
 }
@@ -130,7 +132,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    marginTop: 20,
   },
   instructions: {
     textAlign: 'center',
